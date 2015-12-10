@@ -1,0 +1,24 @@
+{
+  "name": "mrspider-jsdom",
+  "version": "0.0.1",
+  "description": "mrspider jsdom middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mrspider",
+    "jsdom",
+    "middleware"
+  ],
+  "author": "Sean Hayes <seanowenhayes@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^7.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2"
+  }
+}
