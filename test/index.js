@@ -1,4 +1,3 @@
-var sinon = require('sinon');
 var chai = require('chai');
 var should = chai.should();
 var mrspiderJsdom = require('..');
@@ -11,7 +10,9 @@ describe('mrspider-jsdom', function () {
     var jQuery = require('jQuery');
 
     beforeEach(function () {
-        validPage = {};
+        validPage = {
+            content: '<h1>hello</h1>'
+        };
         validSpider = {};
         validNext = function () {
         };
@@ -19,11 +20,9 @@ describe('mrspider-jsdom', function () {
 
     describe('next', function () {
 
-        it('should call the next argument', function () {
+        it('should call the next argument', function (done) {
             var msJsdom = mrspiderJsdom();
-            var next = sinon.spy();
-            msJsdom(validPage, validSpider, next);
-            next.called.should.equal(true);
+            msJsdom(validPage, validSpider, done);
         });
 
         it('should throw an error if no next argument passed', function () {
@@ -36,16 +35,20 @@ describe('mrspider-jsdom', function () {
 
     describe('page', function () {
 
-        it('should get the $ property set', function () {
+        it('should get the $ property set', function (done) {
             var msJsdom = mrspiderJsdom();
-            msJsdom(validPage, validSpider, validNext);
-            should.exist(validPage.$);
+            msJsdom(validPage, validSpider, function () {
+                should.exist(validPage.$);
+                done();
+            });
         });
 
-        it('should get the $ property to an instance of jquery', function () {
+        it('should get the $ property to an instance of jquery', function (done) {
             var msJsdom = mrspiderJsdom();
-            msJsdom(validPage, validSpider, validNext);
-            validPage.$.should.be.instanceOf(jQuery);
+            msJsdom(validPage, validSpider, function () {
+                validPage.$('h1').text().should.equal('hello');
+                done();
+            });
 
         });
     })
