@@ -4,7 +4,10 @@
   "description": "mrspider jsdom middleware",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/_mocha --ui tdd --reporter spec --recursive test",
+    "test-watch": "mocha --require test/setup --recursive --watch",
+    "test-cov": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "keywords": [
     "mrspider",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
   }
