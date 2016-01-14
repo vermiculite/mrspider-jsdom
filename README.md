@@ -9,7 +9,7 @@ npm i -S mrspider-jsdom
 ## Usage
 
 ```js
-var spider = require('mrspider)();
+var spider = require('mrspider')();
 var mrspiderRequest = require('mrspider-request');
 var mrspiderJsdom = require('mrspider-jsdom');
 
