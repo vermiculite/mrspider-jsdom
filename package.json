@@ -18,7 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^2.1.4",
-    "jsdom": "^7.2.0"
+    "jsdom": "^7.2.0",
+    "through2": "^2.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.1",

@@ -1,7 +1,10 @@
-var jsdom = require('jsdom');
+"use strict";
+
+let jsdom = require('jsdom');
+let through2 = require('through2');
 
 module.exports = function() {
-    return function(page, spider, next) {
+    return through2(function(page, next) {
         if(typeof next !== 'function') {
             throw new Error('next is required to be a function for mrspider-jsdom.');
         }
@@ -14,5 +17,5 @@ module.exports = function() {
             }
         );
 
-    }
+    });
 };
