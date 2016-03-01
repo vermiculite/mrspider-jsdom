@@ -1,6 +1,6 @@
 {
   "name": "mrspider-jsdom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mrspider jsdom middleware",
   "main": "index.js",
   "scripts": {

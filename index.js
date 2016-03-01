@@ -4,7 +4,7 @@ let jsdom = require('jsdom');
 let through2 = require('through2');
 
 module.exports = function() {
-    return through2(function(page, next) {
+    return through2(function(page, enc, next) {
         if(typeof next !== 'function') {
             throw new Error('next is required to be a function for mrspider-jsdom.');
         }
